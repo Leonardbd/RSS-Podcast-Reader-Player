@@ -1,6 +1,8 @@
 # RSS Podcast Reader And Player
 
 ![GitHub top language](https://img.shields.io/github/languages/top/tomaszbaslyk/rss-reader.svg)
+
+
 Three Layer Architecture
 
 1. Add new categories
