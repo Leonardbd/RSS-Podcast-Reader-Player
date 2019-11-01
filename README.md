@@ -1,8 +1,8 @@
 # RSS-Reader
-Add new categories
-Add new Podcast RSS feeds
-Click the episodes of the feeds to view info
-Play the episodes by doubleclicking them
+1. Add new categories
+2. Add new RSS PodcastONLY feeds
+3. Click the episodes of the feeds to view info
+4. Play the episodes by doubleclicking them
 
 ![GitHub top language](https://img.shields.io/github/languages/top/tomaszbaslyk/rss-reader.svg)
 
