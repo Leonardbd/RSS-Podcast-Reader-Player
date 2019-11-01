@@ -1,4 +1,4 @@
-# RSS Reader and Player
+# RSS Podcast Reader And Player
 
 Three Layer Architecture
 
