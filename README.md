@@ -2,6 +2,7 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/tomaszbaslyk/rss-reader.svg)
 
+Windows Form Application
 
 Three Layer Architecture
 
