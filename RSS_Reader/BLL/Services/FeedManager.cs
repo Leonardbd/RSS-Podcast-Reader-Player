@@ -8,6 +8,8 @@ using System.ServiceModel.Syndication;
 using DAL;
 using BLL.Models;
 using BLL.Validation;
+using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace BLL.Services
 {
@@ -29,25 +31,49 @@ namespace BLL.Services
 
             if (Validator.IsNotNull(feed))
             {
+                
                 return feed.Title.Text;
             }
 
             return null;
         }
 
+               
+            
+            //var url = document.Root.Element("channel").Element("item").Element("enclosure").Attribute("url").Value;
+                              
+                              
+                              
+                             
+       
+
         public static List<Episode> GetEpisodes(string url)
         {
             SyndicationFeed feed = RSSReader.Reader(url);
             List<Episode> episodes = new List<Episode>();
 
+            var listURL = new List<string>();
+
+            var document = XDocument.Load(url);
+
+            foreach (var item in document.Descendants("item"))
+            {
+                var namnURL = item.Name.ToString();
+                var urln = item.Element("enclosure").Attribute("url").Value;
+                listURL.Add(urln);
+            }
+
             if (Validator.IsNotNull(feed))
             {
                 int episodeCounter = feed.Items.ToList().Count;
 
+                int i = 0;
+
                 foreach (var item in feed.Items.ToList())
                 {
-                    episodes.Add(new Episode(episodeCounter, item.Title.Text, item.Summary.Text));
+                    episodes.Add(new Episode(episodeCounter, item.Title.Text, item.Summary.Text, listURL[i]));
                     episodeCounter--;
+                    i++;
                 }
 
             }

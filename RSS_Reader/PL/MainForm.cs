@@ -4,6 +4,7 @@ using BLL.Validation;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,6 @@ namespace PL
     {
         private readonly FeedGroup _FeedGroup;
         private readonly CategoryGroup _CategoryGroup;
-
         public MainForm()
         {
             InitializeComponent();
@@ -135,7 +135,7 @@ namespace PL
         {
             lvEpisodes.Items.Clear();
             lblTitle.Text = "";
-            lblDesc.Text = "";
+            webBrowser1.DocumentText = "";
         }
         #endregion
 
@@ -181,6 +181,9 @@ namespace PL
                             lvPodcasts.Items.Add(item);
                             FrequencyTimer.Start(feed);
                             UpdateFeedListView();
+                            
+
+
                         }
                         else
                         {
@@ -230,7 +233,10 @@ namespace PL
                     First();
 
                 lblTitle.Text = selectedEpisode.Name;
-                lblDesc.Text = selectedEpisode.Description;
+                webBrowser1.DocumentText = selectedEpisode.Description;
+                //Process.Start("wmplayer.exe", selectedEpisode.Url);
+
+                
             }
         }
 
@@ -404,6 +410,21 @@ namespace PL
             FeedManager.SaveFeeds(_FeedGroup.GetAll());
             CategoryManager.SaveCategories(_CategoryGroup.GetAll());
         }
+
+        private void lvEpisodes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Feed selectedFeed = (Feed)lvPodcasts.SelectedItems[0].Tag;
+            Episode selectedEpisode = selectedFeed.Episodes.
+                    Where((ep) => ep.EpisodeNumber.ToString().Equals(lvEpisodes.SelectedItems[0].Text)).
+                    First();
+            Process.Start("wmplayer.exe", selectedEpisode.Url);
+        }
         #endregion
+
+
+
+
+
+
     }
 }

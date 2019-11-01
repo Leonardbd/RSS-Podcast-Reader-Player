@@ -13,12 +13,13 @@ namespace BLL.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-
-        public Episode(int episodeNumber, string name, string description)
+        public string Url { get; set; }
+        public Episode(int episodeNumber, string name, string description, string url)
         {
             EpisodeNumber = episodeNumber;
             Name = name;
             Description = description;
+            Url = url;
 
         }
         public Episode()
