@@ -11,7 +11,7 @@ Three Layer Architecture
 3. Click the episodes of the feeds to view info
 4. Play the episodes by doubleclicking them
 
-
+Application Serializes to XML on close and Deserializes on start.
 
 Project collaborators: 
 - [tomaszbaslyk](https://github.com/tomaszbaslyk)
