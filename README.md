@@ -1,4 +1,4 @@
-# RSS-Reader
+# RSS Reader and Player
 1. Add new categories
 2. Add new RSS PodcastONLY feeds
 3. Click the episodes of the feeds to view info
