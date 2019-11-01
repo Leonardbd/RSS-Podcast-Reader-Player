@@ -1,4 +1,7 @@
 # RSS Reader and Player
+
+Three Layer Architecture
+
 1. Add new categories
 2. Add new RSS PodcastONLY feeds
 3. Click the episodes of the feeds to view info
